@@ -27,7 +27,10 @@ jobs:
 
       - name: Create release branch
         run: git checkout -b release/v${{github.event.inputs.versionName}}
-
+        
+      - name: Generate changelog
+        uses: heinrichreimer/action-github-changelog-generator@v2.3
+        
       - name: Update Changelog
         uses: stefanzweifel/changelog-updater-action@v1.6.0
         with:
