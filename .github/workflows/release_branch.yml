@@ -10,6 +10,9 @@ on:
       versionName:
         description: 'Define version number (e.g. 1.0.0)'
         required: true
+      releaseNotes:
+        description: 'Define Release notes'
+        required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -34,7 +37,7 @@ jobs:
       - name: Update Changelog
         uses: stefanzweifel/changelog-updater-action@v1.6.0
         with:
-          release-notes: 'Sandox released verson: '
+          release-notes: ${{github.event.inputs.releaseNotes}}
           latest-version: ${{github.event.inputs.versionName}}
           
      # In order to make a commit, we need to initialize a user.
