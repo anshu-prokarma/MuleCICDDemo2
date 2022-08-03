@@ -34,6 +34,7 @@ jobs:
       - name: Update Changelog
         uses: stefanzweifel/changelog-updater-action@v1.6.0
         with:
+          release-notes: 'Sandox released verson: '
           latest-version: ${{github.event.inputs.versionName}}
           
      # In order to make a commit, we need to initialize a user.
