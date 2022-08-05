@@ -2,15 +2,11 @@ name: Bump version
 on:
   pull_request:
     branches: [main]
-    types:
-      - opened
-      - reopened
-      - synchronize
-      - ready_for_review
+    types: [closed]
     
 jobs:
   build:
-    if: github.event.review.state == 'approved'
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
