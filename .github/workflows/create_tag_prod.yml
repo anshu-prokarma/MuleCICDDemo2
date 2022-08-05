@@ -15,3 +15,14 @@ jobs:
       id: semver
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+       
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@latest
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      with:
+        tag_name: ${{ steps.semver.outputs.new_tag }}
+        release_name: Release ${{ steps.semver.outputs.new_version }}
+        draft: false
+        prerelease: false   
