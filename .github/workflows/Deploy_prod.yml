@@ -16,6 +16,8 @@ jobs:
     runs-on: ubuntu-latest
    
     steps:
+    - name: Print
+      run: env | sort
     - name: Get latest tag
       id: get-latest-tag
       uses: oprypin/find-latest-tag@v1
