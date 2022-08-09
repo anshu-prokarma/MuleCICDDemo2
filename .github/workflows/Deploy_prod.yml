@@ -3,10 +3,10 @@
 name: Prod
 
 on:
-  push:    
-    tags:        
-      - 'v*'
-
+  #push:    
+   # tags:        
+   #   - 'v*'
+  workflow_dispatch:
   
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -17,8 +17,14 @@ jobs:
     environment: Production
    
     steps:
+    - name: Get current tag
+      id: get-current-tag
+      uses: zingimmick/github-action-get-current-tag@v1
+         
     - name: Checkout repository
       uses: actions/checkout@v3
+      with:
+        ref: ${{steps.get-current-tag.outputs.tag}}
       
     - name: Cache dependencies
       uses: actions/setup-java@v3
@@ -48,9 +54,15 @@ jobs:
     environment: Production
     steps:    
     
+    - name: Get current tag
+      id: get-current-tag
+      uses: zingimmick/github-action-get-current-tag@v1
+         
     - name: Checkout repository
       uses: actions/checkout@v3
-    
+      with:
+        ref: ${{steps.get-current-tag.outputs.tag}}
+        
     - uses: actions/cache@v1
       with:
         path: ~/.m2/repository
