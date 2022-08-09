@@ -15,7 +15,7 @@ jobs:
 
     runs-on: ubuntu-latest
     outputs:
-      tagname: steps.get-latest-tag.outputs.tagname
+      tagname: ${{ steps.tagname.outputs.tagvalue }}
    
     steps:
     - name: Print
@@ -27,7 +27,8 @@ jobs:
         repository: ${{ github.repository }}
         releases-only: true
     - name: Print Tag name 
-      run: echo "::set-output name=tagname::${{steps.get-latest-tag.outputs.tag}}"
+      id: tagname
+      run: echo "::set-output name=tagvalue::${{steps.get-latest-tag.outputs.tag}}"
     - name: Checkout repository
       uses: actions/checkout@v3
       with:
