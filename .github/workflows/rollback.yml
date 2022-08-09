@@ -24,7 +24,7 @@ jobs:
         id: download-maven-artifact
         uses: clausnz/github-action-download-maven-artifact@master
         with:
-          url: 'https://916d-2600-8804-289-800-113c-299b-e8f1-37b7.ngrok.io/repository/maven-releases/'
+          url: 'https://916d-2600-8804-289-800-113c-299b-e8f1-37b7.ngrok.io'
           repository: 'maven-releases'
           groupId: 'com.tm'
           artifactId: 'MuleDemo'
