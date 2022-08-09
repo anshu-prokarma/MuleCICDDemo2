@@ -56,9 +56,12 @@ jobs:
     environment: Production
     steps:    
     
-    - name: Get current tag
-      id: get-current-tag
-      uses: zingimmick/github-action-get-current-tag@v1
+    - name: Get latest tag
+      id: get-latest-tag
+      uses: oprypin/find-latest-tag@v1
+      with:
+        repository: ${{ github.event.repository.name }}
+        releases-only: true
          
     - name: Checkout repository
       uses: actions/checkout@v3
