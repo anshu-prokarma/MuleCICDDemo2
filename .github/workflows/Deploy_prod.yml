@@ -22,7 +22,7 @@ jobs:
       id: get-latest-tag
       uses: oprypin/find-latest-tag@v1
       with:
-        repository: ${{ github.event.repository.name }}
+        repository: ${{ GITHUB_REPOSITORY }}
         releases-only: true
          
     - name: Checkout repository
