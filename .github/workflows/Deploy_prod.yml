@@ -21,6 +21,7 @@ jobs:
       id: get-current-tag
       uses: oprypin/find-latest-tag@v1
       with:
+        repository: anshu-prokarma/MuleCICDDemo2
         releases-only: true
          
     - name: Checkout repository
