@@ -30,6 +30,8 @@ jobs:
           artifactId: 'MuleDemo'
           version: ${{github.event.inputs.versionNumber}}
           extension: 'jar'
+          username: admin
+          password: ${{ secrets.MVN_PWD }}
 
       - name: Output file path in container
         run: |
