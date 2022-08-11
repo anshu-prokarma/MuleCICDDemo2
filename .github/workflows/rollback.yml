@@ -44,7 +44,7 @@ jobs:
         run: |
           artifactName=$(basename "${{ steps.download-maven-artifact.outputs.file }}")
           mvn deploy -DmuleDeploy \
-           -Dmule.artifact=$artifactName \
+           -Dmule.artifact=${{ steps.download-maven-artifact.outputs.file }} \
            -Dmule.version=4.4.0 \
            -Dusername="$USERNAME" \
            -Dpassword="$PASSWORD" \
