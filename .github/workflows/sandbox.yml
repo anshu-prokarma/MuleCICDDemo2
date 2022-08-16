@@ -55,7 +55,7 @@ jobs:
           format: maven2
           repository: maven-releases
           coordinates: groupId=com.tm artifactId=MuleDemo version=1.1.0
-          assets: extension=jar packaging=pom
+          assets: extension=jar
           filename: target/*.jar  
         
       - name: Stamp artifact file name with commit hash
