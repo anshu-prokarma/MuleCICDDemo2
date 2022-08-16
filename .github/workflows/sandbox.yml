@@ -86,15 +86,15 @@ jobs:
           
     - name: Deploy to Sandbox Cloudhub
       env:
-        USERNAME: ${{ secrets.USERNAME }}
-        PASSWORD: ${{ secrets.PASSWORD }}
+        CLIENT_ID: ${{ secrets.CONNECTEDAPP_CLIENTID }}
+        CLIENT_SECRET: ${{ secrets.CONNECTEDAPP_CLIENTSECRET }}
       run: |
         artifactName=$(ls *.jar | head -1)
         mvn deploy -DmuleDeploy \
          -Dmule.artifact=$artifactName \
-         -Dmule.version=4.4.0 \
-         -Dusername="$USERNAME" \
-         -Dpassword="$PASSWORD" \
+         -Dapp.runtime=4.4.0 \
+         -Dclientid="$CLIENT_ID" \
+         -Dclientsecret="$CLIENT_SECRET" \
          -Denvironment=Sandbox \
          -Dcloudhub.application.name=democicdanshu22 \
          -DskipTests      
