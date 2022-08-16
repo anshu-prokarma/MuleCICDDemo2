@@ -47,7 +47,7 @@ jobs:
       - name: Build with Maven
         run: mvn -B clean package --file pom.xml -DskipTests
       - name: Publish to Nexus
-        uses: sonatype-nexus-community/nexus-repo-github-action@master
+        uses: sonatype-nexus-community/nexus-repo-github-action@1.0.0
         with:
           serverUrl: https://38ca-2600-8804-289-800-c96a-664f-e95c-6fbe.ngrok.io
           username: admin
