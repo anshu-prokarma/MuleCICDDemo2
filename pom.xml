@@ -46,17 +46,16 @@
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 						<muleVersion>${app.runtime}</muleVersion>
-						<username>${username}</username>
-						<password>${password}</password>
 						<applicationName>${cloudhub.application.name}</applicationName>
 						<environment>${environment}</environment>
+						<workers>1</workers>
+						<workerType>Micro</workerType>
+						<!--<region>${region}</region>-->
+						<connectedAppClientId>${clientid}</connectedAppClientId>
+						<connectedAppClientSecret>${clientsecret}</connectedAppClientSecret>
+						<connectedAppGrantType>client_credentials</connectedAppGrantType>
 						<objectStoreV2>true</objectStoreV2>
-						<!-- <region>${region}</region>
-						<workers>${workers}</workers>
-						<workerType>${workerType}</workerType>
-						<properties>
-							<key>value</key>
-						</properties> -->
+						
 					</cloudHubDeployment>
 				</configuration>
 			</plugin>
