@@ -46,6 +46,17 @@ jobs:
             
       - name: Build with Maven
         run: mvn -B clean package --file pom.xml -DskipTests
+      - name: Publish to Nexus
+        uses: sonatype-nexus-community/nexus-repo-github-action@master
+        with:
+          serverUrl: https://38ca-2600-8804-289-800-c96a-664f-e95c-6fbe.ngrok.io
+          username: admin
+          password: ${{ secrets.MVN_PWD }}
+          format: maven2
+          repository: maven-releases
+          coordinates: groupId=com.tm artifactId=MuleDemo version=1.1.0
+          assets: extension=jar packaging=pom
+          filename: target/*.jar  
         
       - name: Stamp artifact file name with commit hash
         run: |
