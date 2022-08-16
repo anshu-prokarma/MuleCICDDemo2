@@ -54,7 +54,7 @@ jobs:
           password: ${{ secrets.MVN_PWD }}
           format: maven2
           repository: maven-releases
-          coordinates: groupId=com.tm artifactId=MuleDemo version=1.1.0
+          coordinates: groupId=com.tm artifactId=MuleDemo version=1.1.0 packaging=pom
           assets: extension=jar
           filename: target/*.jar  
         
