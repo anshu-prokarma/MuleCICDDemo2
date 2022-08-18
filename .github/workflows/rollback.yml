@@ -24,10 +24,10 @@ jobs:
         id: download-maven-artifact
         uses: clausnz/github-action-download-maven-artifact@master
         with:
-          url: 'https://916d-2600-8804-289-800-113c-299b-e8f1-37b7.ngrok.io/repository'
+          url: 'https://b061-2600-8804-289-800-6924-c48c-a6ff-3730.ngrok.io/repository'
           repository: 'maven-releases'
-          groupId: 'com.tm'
-          artifactId: 'MuleDemo'
+          groupId: 'com.mycompany'
+          artifactId: 'democicd'
           version: ${{github.event.inputs.versionNumber}}
           extension: 'jar'
           username: admin
@@ -36,18 +36,18 @@ jobs:
       - name: Output file path in container
         run: |
           echo "File has been downloaded to ${{ steps.download-maven-artifact.outputs.file }}"
-      - uses: actions/checkout@v3    
+      #- uses: actions/checkout@v3    
       - name: Deploy to Sandbox
         env:
-          USERNAME: ${{ secrets.USERNAME }}
-          PASSWORD: ${{ secrets.PASSWORD }}
+          CLIENT_ID: ${{ secrets.CONNECTEDAPP_CLIENTID }}
+          CLIENT_SECRET: ${{ secrets.CONNECTEDAPP_CLIENTSECRET }}
         run: |
           artifactName=$(basename "${{ steps.download-maven-artifact.outputs.file }}")
           mvn deploy -DmuleDeploy \
            -Dmule.artifact=${{ steps.download-maven-artifact.outputs.file }} \
            -Dmule.version=4.4.0 \
-           -Dusername="$USERNAME" \
-           -Dpassword="$PASSWORD" \
+           -Dclientid="$CLIENT_ID" \
+           -Dclientsecret="$CLIENT_SECRET" \
            -Denvironment=Sandbox \
-           -Dcloudhub.application.name=democicdanshu22 \
+           -Dcloudhub.application.name=democicdanshu22445 \
            -DskipTests    
