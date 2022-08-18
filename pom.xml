@@ -106,7 +106,7 @@
 	</build>
 <distributionManagement>
 		<repository>
-			<id>my-repo-id</id>
+			<id>releases</id>
 			<url>https://b061-2600-8804-289-800-6924-c48c-a6ff-3730.ngrok.io/repository/maven-releases/</url>
 		</repository>
 	</distributionManagement>
