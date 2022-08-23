@@ -55,6 +55,7 @@ jobs:
           commitHash=$(git rev-parse --short "$GITHUB_SHA")
           artifactNameWithCommitHash=$(ls target/*.jar | head -1 | sed "s/.jar/-$commitHash.jar/g")
           mv $artifactName $artifactNameWithCommitHash
+        if: ${{ failure() || success() }}  
           
       - name: Upload a Build Artifact 
         uses: actions/upload-artifact@v3.1.0
