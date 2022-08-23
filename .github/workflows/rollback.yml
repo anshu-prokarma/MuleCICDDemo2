@@ -24,7 +24,7 @@ jobs:
         id: download-maven-artifact
         uses: clausnz/github-action-download-maven-artifact@master
         with:
-          url: 'https://b061-2600-8804-289-800-6924-c48c-a6ff-3730.ngrok.io/'
+          url: 'https://b061-2600-8804-289-800-6924-c48c-a6ff-3730.ngrok.io/repository'
           repository: 'maven-releases'
           groupId: 'com.mycompany'
           artifactId: 'democicd'
