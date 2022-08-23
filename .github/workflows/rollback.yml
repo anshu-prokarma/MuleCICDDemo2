@@ -50,5 +50,5 @@ jobs:
            -Dclientid="$CLIENT_ID" \
            -Dclientsecret="$CLIENT_SECRET" \
            -Denvironment=Sandbox \
-           -Dcloudhub.application.name=democicdanshu22445 \
+           -Dcloudhub.application.name=nimicdtest2185 \
            -DskipTests    
