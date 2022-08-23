@@ -37,7 +37,7 @@ jobs:
       - name: Output file path in container
         run: |
           echo "File has been downloaded to ${{ steps.download-maven-artifact.outputs.file }}"
-      #- uses: actions/checkout@v3    
+      - uses: actions/checkout@v3    
       - name: Deploy to Sandbox
         env:
           CLIENT_ID: ${{ secrets.CONNECTEDAPP_CLIENTID }}
