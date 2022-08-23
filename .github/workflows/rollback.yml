@@ -29,6 +29,7 @@ jobs:
           groupId: 'com.mycompany'
           artifactId: 'democicd'
           version: ${{github.event.inputs.versionNumber}}
+          classifier: 'mule-application'
           extension: 'jar'
           username: admin
           password: ${{ secrets.MVN_PWD }}
