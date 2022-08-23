@@ -62,7 +62,7 @@ jobs:
         with:
             name: artifacts
             path: target/*.jar    
-            
+        if: failure() || success()    
   deploy:
     if: "${{ github.event.inputs.choice == 'BuildandDeploy' }}"
     needs: build
