@@ -44,7 +44,7 @@ jobs:
           CLIENT_SECRET: ${{ secrets.CONNECTEDAPP_CLIENTSECRET }}
         run: |
           artifactName=$(basename "${{ steps.download-maven-artifact.outputs.file }}")
-          mvn deploy -DmuleDeploy \
+          mvn mule:deploy \
            -Dmule.artifact=${{ steps.download-maven-artifact.outputs.file }} \
            -Dmule.version=4.4.0 \
            -Dclientid="$CLIENT_ID" \
