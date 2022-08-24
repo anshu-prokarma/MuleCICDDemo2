@@ -48,21 +48,21 @@ jobs:
         run: mvn -B clean package --file pom.xml -DskipTests
       - name: Publish to Nexus
         run: mvn deploy -DskipTests -Dmaven.install.skip=true -Dnexus.username=admin -Dnexus.password=${{ secrets.MVN_PWD }} -s .maven/settings.xml  
-        
+        continue-on-error: true
       - name: Stamp artifact file name with commit hash
         run: |
           artifactName=$(ls target/*.jar | head -1)
           commitHash=$(git rev-parse --short "$GITHUB_SHA")
           artifactNameWithCommitHash=$(ls target/*.jar | head -1 | sed "s/.jar/-$commitHash.jar/g")
           mv $artifactName $artifactNameWithCommitHash
-        if: failure() || success() 
+         
           
       - name: Upload a Build Artifact 
         uses: actions/upload-artifact@v3.1.0
         with:
             name: artifacts
             path: target/*.jar    
-        if: failure() || success()    
+            
   deploy:
     if: "${{ github.event.inputs.choice == 'BuildandDeploy' }}"
     needs: build
