@@ -57,6 +57,7 @@
 						<connectedAppGrantType>client_credentials</connectedAppGrantType>
 						<objectStoreV2>true</objectStoreV2>
 						<properties>
+							<hello>anshu</hello>
   							<http.port>${env.HTTP_PORT}</http.port>
 						</properties>
 					</cloudHubDeployment>
