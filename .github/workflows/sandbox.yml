@@ -91,7 +91,7 @@ jobs:
       env:
         CLIENT_ID: ${{ secrets.CONNECTEDAPP_CLIENTID }}
         CLIENT_SECRET: ${{ secrets.CONNECTEDAPP_CLIENTSECRET }}
-        HTTP_PORT: ${{ secrets.http_port }}
+        HTTP_PORT: ${{ secrets.port }}
       run: |
         artifactName=$(ls *.jar | head -1)
         mvn deploy -DmuleDeploy \
@@ -100,6 +100,5 @@ jobs:
          -Dclientid="$CLIENT_ID" \
          -Dclientsecret="$CLIENT_SECRET" \
          -Denvironment=Sandbox \
-         -Dhttp_port="$HTTP_PORT" \
          -Dcloudhub.application.name=nimicdtest2185 \
          -DskipTests      
